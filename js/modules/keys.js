@@ -1,0 +1,4 @@
+export const KEYS = {
+    TOKEN: '6259676936:AAGZn7TwbVd-o4gQuqRpgASNgki89zKJCY8',
+    CHAT_ID: '-1001891588574'
+}
