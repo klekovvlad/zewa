@@ -1,5 +1,4 @@
 import '../scss/style.scss';
-import { ListImages } from "./modules/images.js";
 import { KEYS } from "./modules/keys.js";
 import { Pages } from "./modules/pages.js";
 import { Prizes } from "./modules/prizes.js";
