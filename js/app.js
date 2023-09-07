@@ -1,4 +1,4 @@
-import '../scss/style.scss';
+// import '../scss/style.scss';
 import { KEYS } from "./modules/keys.js";
 import { Pages } from "./modules/pages.js";
 import { Prizes } from "./modules/prizes.js";
