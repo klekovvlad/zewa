@@ -438,6 +438,7 @@ body {
 .promocode {
   -webkit-animation: promocode 0.8s ease-in-out forwards;
           animation: promocode 0.8s ease-in-out forwards;
+  text-transform: uppercase;
 }
 
 .desc {
