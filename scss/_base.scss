@@ -24,8 +24,108 @@ body {
     }
 
     &[data-page="1"] {
-        .app-body {
-            gap: 10px;
+        &::after {
+            background: url('../img/hand-1.png') no-repeat center bottom;
+            background-size: contain;
+        }
+    }
+
+    &[data-page="2"] {
+        .app-progress {
+            background-image: url('../img/1.png');
+        }
+    }
+
+    &[data-page="3"] {
+        .app-progress {
+            background-image: url('../img/2.png');
+        }
+    }
+
+    &[data-page="4"] {
+        .app-progress {
+            background-image: url('../img/3.png');
+        }
+    }
+
+    &[data-page="5"] {
+        .app-progress {
+            background-image: url('../img/4.png');
+        }
+    }
+
+    &[data-page="6"] {
+        .app-progress {
+            background-image: url('../img/5.png');
+        }
+    }
+
+    &[data-page="1"],
+    &[data-page="8"] {
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: url('../img/hand-1.png') no-repeat center bottom;
+            background-size: contain;
+        }
+
+        &.looser {
+            &::after {
+                background: url('../img/hand-looser.png') no-repeat 50% calc(100% + 140px);
+            }
+        }
+
+        &.winner {
+            &::after {
+                height: 50%;
+                background: url('../img/hand-winner.png') no-repeat calc(100% + 20px) calc(100% + 40px);
+                background-size: contain;
+            }
+
+            .app-image {
+                &-1 {
+                    background-image: url('../img/cap.png');
+                    transform: rotate(0deg);
+                    top: -30px;
+                    right: 20px;
+                }
+
+                &-2 {
+                    left: calc(100% - 150px);
+                    transform: rotate(30deg);
+                }
+
+                &-3 {
+                    top: 70%;
+                    left: 0;
+                    transform: rotate(-20deg);
+                }
+            }
+        }
+
+        &.winner,
+        &.looser {
+            .app-body {
+                &::before,
+                &::after {
+                    background: url('../img/ok-icon.png') no-repeat center;
+                    background-size: contain;
+                }
+
+                &::before {
+                    top: 600px;
+                    width: 60px;
+                }
+
+                &::after {
+                    width: 40px;
+                    top: 400px;
+                }
+            }
         }
 
         .button {
@@ -36,6 +136,57 @@ body {
             left: 0;
             bottom: 0;
             margin: 50px auto 0;
+        }
+
+        .app-body {
+            gap: 10px;
+            position: relative;
+            &::before,
+            &::after {
+                pointer-events: none;
+                content: '';
+                position: absolute;
+                aspect-ratio: 1 / 1;
+                background: url('../img/que-icon.png') no-repeat center;
+                background-size: contain;
+            }
+
+            &::before {
+                width: 40px;
+                top: 330px;
+                left: 20px;
+                transform: rotate(-30deg);
+            }
+
+            &::after {
+                width: 60px;
+                top: 300px;
+                left: calc(100% - 80px);
+                animation: icons 10s linear infinite;
+            }
+        }
+
+        .app-image {
+            &-1 {
+                top: -50px;
+                right: -50px;
+                width: 200px;
+                transform: rotate(-20deg);
+            }
+
+            &-2 {
+                top: 60%;
+                width: 180px;
+                transform: rotate(-20deg);
+            }
+
+            &-3 {
+                top: 50%;
+                left: calc(100% - 200px);
+                width: 250px;
+                transform: rotate(20deg);
+                filter: blur(2px);
+            }
         }
     }
 
@@ -65,5 +216,23 @@ body {
                 transform: translate(-50%, 0) scale(1);
             }
         }
+    }
+}
+
+@keyframes icons {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+    25% {
+        transform: translate(3px, 3px) rotate(10deg);
+    }
+    50% {
+        transform: translate(-3px, 0px) rotate(0deg);
+    }
+    75% {
+        transform: translate(-3px, -3px) rotate(-6deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0);
     }
 }

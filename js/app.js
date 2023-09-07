@@ -28,7 +28,11 @@ const Quiz = {
             this.body,
             this.renderButton('Начать'),
         )
-            
+        for(let i = 1; i <= 3; i++) {
+            this.app.append(
+                this.renderTextElement(`app-image app-image-${i}`, '')
+            )
+        }
         this.buttonListener(document.querySelector('.button'));
     },
 
@@ -42,7 +46,7 @@ const Quiz = {
                 if(this.live > 0 && this.page < this.questions.length + 1) {
                     this.renderQuizPage();
                 }else{
-                    button.textContent = 'К покупкам'
+                    button.textContent = 'Попробовать'
                     if(this.live === 0) {
                         this.renderResultPage('looser')
                         this.message = `LOOSER ZEWA: ${(this.page - 1) + (this.live - 3)} из ${this.questions.length}`
@@ -137,6 +141,7 @@ const Quiz = {
 
     renderResultPage(resut) {
         this.app.dataset.page = 8;
+        this.app.classList.add(resut)
         this.body.innerHTML = '';
         for(let key in this.getPrizes()[resut]) {
             this.body.append(
@@ -151,7 +156,7 @@ const Quiz = {
                 <span class="value">${this.page - 1}</span>/${this.questions.length}
             </div>
         `
-    }
+    },
 }
 
 Quiz.init();
